@@ -3,6 +3,7 @@
 	import { Motion } from 'svelte-motion';
 
 	let bgColors = ['#6F2DBD', '#F15946', '#E01A4F', '#0C090D'];
+	let accentColors = ['#E01A4F', '#0C090D', '#F15946', '#6F2DBD'];
 	let index = $state(0);
 	let roller: NodeJS.Timeout;
 

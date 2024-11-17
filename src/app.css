@@ -20,4 +20,8 @@
 	h5 {
 		@apply text-xl;
 	}
+
+	.text-gradient {
+		@apply bg-gradient-to-tr text-transparent bg-clip-text animate-gradient-y;
+	}
 }
