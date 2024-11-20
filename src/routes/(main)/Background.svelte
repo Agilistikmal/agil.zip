@@ -19,6 +19,11 @@
 	});
 </script>
 
-<Motion animate={{ backgroundColor: bgColors[index] }} transition={{ duration: 1 }} let:motion>
+<Motion
+	initial={{ backgroundColor: bgColors[0] }}
+	animate={{ backgroundColor: bgColors[index] }}
+	transition={{ duration: 1 }}
+	let:motion
+>
 	<div use:motion class="absolute left-0 top-0 -z-50 h-full w-full"></div>
 </Motion>

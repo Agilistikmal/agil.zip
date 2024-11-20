@@ -1,32 +1,32 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import ProjectCard from './ProjectCard.svelte';
 	import { fly } from 'svelte/transition';
-	import { pb } from '$lib/pocketbase/pocketbase';
-	import type { Project } from '$lib/types/project_types';
 	import { page } from '$app/stores';
-	import type { TechStack } from '$lib/types/tech_stack_types';
+	import { goto } from '$app/navigation';
 
-	let paramPage: string | null;
-	$: paramPage = $page.url.searchParams.get('page');
+	let { data } = $props();
 
-	let paramLimit: string | null;
-	$: paramLimit = $page.url.searchParams.get('limit');
+	let query = new URLSearchParams($page.url.searchParams.toString());
 
-	let projects: Project[] = [];
-	let techStacks: TechStack[] = [];
+	async function handleSearch(
+		e: KeyboardEvent & {
+			currentTarget: EventTarget & HTMLInputElement;
+		}
+	) {
+		const search = e.currentTarget.value;
+		query.set('search', search);
+		goto('?' + query.toString(), { keepFocus: true });
+	}
 
-	onMount(async () => {
-		const resultProjects = await pb
-			.collection('projects')
-			.getList(Number(paramPage), Number(paramLimit), {
-				expand: 'contributors,tech_stacks'
-			});
-		projects = resultProjects.items as Project[];
-
-		const resultTechStacks = await pb.collection('tech_stacks').getFullList();
-		techStacks = resultTechStacks as TechStack[];
-	});
+	async function handleSort(
+		e: Event & {
+			currentTarget: EventTarget & HTMLSelectElement;
+		}
+	) {
+		const sort = e.currentTarget.value;
+		query.set('sort', sort);
+		goto('?' + query.toString(), { keepFocus: true });
+	}
 </script>
 
 <section class="bg-gradient-to-r from-amethyst to-colombiablue">
@@ -40,36 +40,59 @@
 		</div>
 
 		<!-- Search -->
-		<div class="mt-48 bg-white/25 backdrop-filter backdrop-blur-sm">
+		<div
+			in:fly={{ opacity: 0, delay: 500, duration: 500 }}
+			class="mt-48 bg-white/25 backdrop-filter backdrop-blur-sm"
+		>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				<div class="grid grid-cols-2 gap-4">
-					<select name="tech_stacks" id="tech_stacks" class="p-5 bg-transparent">
-						{#each techStacks as techStack}
-							<option value={techStack.slug}>{techStack.name}</option>
-						{/each}
-					</select>
-					<select name="sort" id="sort" class="p-5 bg-transparent">
-						<option value="az">Name (Asc)</option>
-						<option value="za">Name (Desc)</option>
-					</select>
+				<div class="grid grid-cols-2">
+					<label for="tech_stacks" class="p-5 w-full h-full">
+						<p class="text-xs">Tech Stacks</p>
+						<select name="tech_stacks" id="tech_stacks" class="bg-transparent w-full">
+							{#each data.techStacks as techStack}
+								<option value={techStack.slug}>{techStack.name}</option>
+							{/each}
+						</select>
+					</label>
+					<label for="sort" class="p-5 w-full h-full">
+						<p class="text-xs">Sort by</p>
+						<select name="sort" id="sort" class="bg-transparent w-full" onchange={handleSort}>
+							<option value="newest">Newest</option>
+							<option value="oldest">Oldest</option>
+							<option value="az">Name (Asc)</option>
+							<option value="za">Name (Desc)</option>
+						</select>
+					</label>
 				</div>
-				<div>
+				<label for="search" class="p-5 w-full h-full">
+					<p class="text-xs">Search</p>
 					<input
+						name="search"
+						id="search"
 						type="text"
-						class="p-5 bg-transparent outline-none placeholder:text-white/70"
+						class="bg-transparent outline-none placeholder:text-white/70 w-full"
 						placeholder="Search here..."
+						onkeyup={handleSearch}
 					/>
-				</div>
+				</label>
 			</div>
 		</div>
 
 		<!-- Project Cards -->
 		<div class="mt-5">
-			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-				{#each projects as project, i}
-					<ProjectCard {project} index={i} />
-				{/each}
-			</div>
+			{#if data.projects.length == 0}
+				<div>
+					<p>not found</p>
+				</div>
+			{:else}
+				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+					{#key data.projects}
+						{#each data.projects as project, i}
+							<ProjectCard {project} index={i} />
+						{/each}
+					{/key}
+				</div>
+			{/if}
 		</div>
 	</section>
 </section>
