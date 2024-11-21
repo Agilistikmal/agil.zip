@@ -1,6 +1,7 @@
 import { pb } from '$lib/pocketbase/pocketbase';
 import type { Project } from '$lib/types/project_types';
 import type { TechStack } from '$lib/types/tech_stack_types';
+import type { ListResult } from 'pocketbase';
 import type { PageLoadEvent } from './$types';
 
 export async function load({ url }: PageLoadEvent) {
@@ -28,17 +29,17 @@ export async function load({ url }: PageLoadEvent) {
 			break;
 	}
 
-	const resultProjects = await pb
+	const resultProjects: ListResult<Project> = await pb
 		.collection('projects')
 		.getList(Number(paramPage), Number(paramLimit), {
 			expand: 'contributors,tech_stacks',
 			sort: sort,
 			filter: `title ~ "${paramSearch || ''}"`
 		});
-	const projects = resultProjects.items as Project[];
+	const projects = resultProjects;
 
-	const resultTechStacks = await pb.collection('tech_stacks').getFullList();
-	const techStacks = resultTechStacks as TechStack[];
+	const resultTechStacks: TechStack[] = await pb.collection('tech_stacks').getFullList();
+	const techStacks = resultTechStacks;
 
 	return {
 		projects,

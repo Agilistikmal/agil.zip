@@ -7,7 +7,7 @@ export type Project = RecordModel & {
 	description: string;
 	url: string;
 	started_at: string;
-	finish_at: string;
+	finish_at?: string;
 	contributors: string[];
 	tech_stacks: string[];
 	images: string[];

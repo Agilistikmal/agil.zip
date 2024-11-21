@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
 	import { onDestroy, onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
-	import Background from './Background.svelte';
+	import { fly, scale } from 'svelte/transition';
+	import Background from '$lib/components/Background.svelte';
 
 	let texts: string[] = ['archive', '.zip', 'project', 'profile', 'portfolio'];
 	let index = 0;
@@ -21,7 +21,10 @@
 </script>
 
 <Background />
-<section class="mx-auto h-screen w-full max-w-screen-2xl overflow-hidden px-8 text-white">
+<section
+	transition:fly
+	class="mx-auto h-screen w-full max-w-screen-2xl overflow-hidden px-8 text-white"
+>
 	{#key index}
 		<div class="flex h-full w-full items-center">
 			<div>
@@ -42,6 +45,8 @@
 					<a
 						href="/extract"
 						class="flex w-max items-center gap-2 bg-white/25 px-5 py-2 text-white transition duration-500 hover:bg-white hover:text-black"
+						data-sveltekit-preload-data
+						data-sveltekit-preload-code
 					>
 						<Icon icon="hugeicons:zip-01" class="text-2xl" />
 						<p>Extract to view my projects</p>
