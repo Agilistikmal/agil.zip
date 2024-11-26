@@ -6,7 +6,7 @@
 	<div class="mx-auto w-full max-w-screen-2xl px-8 py-5 text-white">
 		<div class="flex items-center justify-between gap-4">
 			<a href="/" data-sveltekit-preload-data data-sveltekit-preload-code>
-				<Icon icon="duo-icons:campground" class="text-6xl" />
+				<img src="/logo/agil.zip.white.png" alt="agil.zip.white.png" class="h-8" />
 			</a>
 			<div class="flex items-center gap-2">
 				<span>Menu</span>

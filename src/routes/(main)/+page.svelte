@@ -1,7 +1,6 @@
 <script lang="ts">
-	import Icon from '@iconify/svelte';
 	import { onDestroy, onMount } from 'svelte';
-	import { fly, scale } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import Background from '$lib/components/Background.svelte';
 
 	let texts: string[] = ['archive', '.zip', 'project', 'profile', 'portfolio'];
@@ -44,11 +43,23 @@
 				<div class="mt-5">
 					<a
 						href="/extract"
-						class="flex w-max items-center gap-2 bg-white/25 px-5 py-2 text-white transition duration-500 hover:bg-white hover:text-black"
+						class="flex w-max items-center gap-2 bg-white/25 px-5 py-2 text-white transition duration-500 hover:bg-white hover:text-black group"
 						data-sveltekit-preload-data
 						data-sveltekit-preload-code
 					>
-						<Icon icon="hugeicons:zip-01" class="text-2xl" />
+						<!-- <Icon icon="hugeicons:zip-01" class="text-2xl" /> -->
+						<div class="relative h-5 aspect-square">
+							<img
+								src="/logo/Logo White (Archive).svg"
+								alt="agil.zip"
+								class="h-5 opacity-100 group-hover:opacity-0 transition duration-500 absolute top-0 left-0"
+							/>
+							<img
+								src="/logo/Logo (Archive).svg"
+								alt="agil.zip"
+								class="h-5 opacity-0 group-hover:opacity-100 transition duration-500 absolute top-0 left-0"
+							/>
+						</div>
 						<p>Extract to view my projects</p>
 					</a>
 				</div>
