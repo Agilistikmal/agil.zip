@@ -13,7 +13,6 @@
 
 	let { index, project }: Params = $props();
 
-	const contributors: User[] = project.expand?.contributors;
 	const techStacks: TechStack[] = project.expand?.tech_stacks;
 </script>
 

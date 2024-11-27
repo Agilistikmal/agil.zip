@@ -29,8 +29,11 @@
 	}
 </script>
 
-<section transition:fly class="bg-gradient-to-tr from-grape to-amethyst">
-	<div class="mx-auto min-h-screen w-full max-w-screen-2xl pt-48 pb-32 px-8 text-white">
+<section class="bg-gradient-to-tr from-grape to-amethyst">
+	<div
+		transition:fly
+		class="mx-auto min-h-screen w-full max-w-screen-2xl pt-48 pb-32 px-8 text-white"
+	>
 		<!-- Hero -->
 		<div in:fly={{ y: 500, duration: 1000 }}>
 			<h1 class="font-bold">
