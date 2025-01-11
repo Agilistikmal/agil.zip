@@ -30,4 +30,4 @@ jobs:
           push: true
           tags: agilistikmal/agilzip:latest
           build-args: |
-            "PUBLIC_PB_URL=${{ secrets.PUBLIC_PB_URL }}"
+            PUBLIC_PB_URL=${{ secrets.PUBLIC_PB_URL }}
