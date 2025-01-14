@@ -5,6 +5,10 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
+	* {
+		@apply scroll-smooth;
+	}
+
 	h1 {
 		@apply text-5xl font-bold;
 	}

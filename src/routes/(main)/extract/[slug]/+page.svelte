@@ -45,7 +45,7 @@
 					<img
 						src={pb.getFileUrl(data.project, image)}
 						alt={image}
-						class="w-full h-full object-contain object-center"
+						class="w-full h-full object-cover object-top"
 					/>
 				</div>
 			{/each}

@@ -2,6 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import Background from '$lib/components/Background.svelte';
+	import About from './About.svelte';
 
 	let texts: string[] = ['archive', '.zip', 'project', 'profile', 'portfolio'];
 	let index = 0;
@@ -40,14 +41,13 @@
 					</h3>
 					<a href="/extract" class="text-xl md:text-3xl">here.</a>
 				</div>
-				<div class="mt-5">
+				<div class="mt-5 flex items-center gap-2">
 					<a
 						href="/extract"
 						class="flex w-max items-center gap-2 bg-white/25 px-5 py-2 text-white transition duration-500 hover:bg-white hover:text-black group"
 						data-sveltekit-preload-data
 						data-sveltekit-preload-code
 					>
-						<!-- <Icon icon="hugeicons:zip-01" class="text-2xl" /> -->
 						<div class="relative h-5 aspect-square">
 							<img
 								src="/logo/Logo White (Archive).svg"
@@ -62,8 +62,18 @@
 						</div>
 						<p>Extract to view my projects</p>
 					</a>
+
+					<a
+						href="#about"
+						class="flex w-max items-center gap-2 bg-white/5 px-5 py-2 text-white transition duration-500 hover:bg-white/25 group"
+						data-sveltekit-preload-data
+						data-sveltekit-preload-code
+					>
+						<p>or find out more detail about me</p>
+					</a>
 				</div>
 			</div>
 		</div>
 	{/key}
 </section>
+<About />

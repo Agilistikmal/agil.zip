@@ -25,7 +25,7 @@
 		<img
 			src={pb.getFileUrl(project, project.images[0])}
 			alt={project.images[0]}
-			class="object-cover w-full h-full"
+			class="object-cover object-top w-full h-full"
 		/>
 	</div>
 	<div class="px-5 pt-2 pb-5">

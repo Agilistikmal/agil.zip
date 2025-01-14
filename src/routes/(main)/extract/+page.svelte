@@ -49,6 +49,7 @@
 					<label for="tech_stacks" class="p-5 w-full h-full">
 						<p class="text-xs">Tech Stacks</p>
 						<select name="tech_stacks" id="tech_stacks" class="bg-transparent w-full">
+							<option value="">All</option>
 							{#each data.techStacks as techStack}
 								<option value={techStack.slug}>{techStack.name}</option>
 							{/each}
