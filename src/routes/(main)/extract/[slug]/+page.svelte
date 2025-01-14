@@ -58,12 +58,12 @@
 			<div class="space-y-2">
 				<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white/10 p-5 w-full">
 					<h4 class="text-gradient from-grape to-white font-bold">Techstacks</h4>
-					<div class="flex items-center gap-2">
+					<div class="flex items-center gap-2 flex-wrap">
 						{#each techStacks as techStack}
 							<div class="bg-white/10 px-5 py-2 relative group">
 								<div class="flex items-center gap-2">
 									<Icon icon={techStack.iconify_name} class="text-2xl" />
-									<p>{techStack.name}</p>
+									<p class="text-nowrap">{techStack.name}</p>
 								</div>
 							</div>
 						{/each}
@@ -71,7 +71,7 @@
 				</div>
 				<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white/10 p-5 w-full">
 					<h4 class="text-gradient from-grape to-white font-bold">Contributors</h4>
-					<div class="flex items-center gap-2">
+					<div class="flex items-center gap-2 flex-wrap">
 						{#each contributors as contributor}
 							<div class="bg-white/10 px-5 py-2">
 								<div class="flex items-center gap-2">
