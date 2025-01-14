@@ -42,6 +42,7 @@
 		"@types/three": "^0.169.0",
 		"pocketbase": "^0.21.5",
 		"svelte-adapter-bun": "^0.5.2",
+		"svelte-intersection-observer": "^1.0.0",
 		"svelte-motion": "^0.12.2",
 		"three": "^0.170.0"
 	}

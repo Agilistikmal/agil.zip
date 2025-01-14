@@ -18,7 +18,7 @@
 				</a>
 			</li>
 			<li class="group">
-				<a href="/about" class="flex items-center gap-1">
+				<a href="/#about" class="flex items-center gap-1">
 					<Icon
 						icon="uim:document-layout-center"
 						width="24"
