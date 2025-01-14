@@ -62,19 +62,19 @@
 				<h5 class="text-base font-light md:text-xl">Software Engineer</h5>
 				<h1 class="text-3xl md:text-7xl">Agil Ghani Istikmal</h1>
 				<div class="mt-2 flex flex-wrap gap-2 overflow-hidden">
-					<h3 class="text-nowrap text-xl md:text-3xl">Explore my</h3>
-					<div class="w-36 h-10 overflow-hidden">
+					<h3 class="text-nowrap text-lg md:text-3xl">Explore my</h3>
+					<div class="w-24 md:w-36 h-10 overflow-hidden">
 						{#key index}
 							<h3
 								in:fly={{ duration: 500, delay: 500, y: -15 }}
 								out:fly={{ duration: 500, delay: 0, y: 15 }}
-								class="text-center text-xl text-gradient from-saffron to-white font-bold underline md:w-36 md:text-3xl"
+								class="text-center text-lg text-gradient from-saffron to-white font-bold underline md:w-36 md:text-3xl"
 							>
 								{texts[index]}
 							</h3>
 						{/key}
 					</div>
-					<a href="/extract" class="text-xl md:text-3xl">here.</a>
+					<a href="/extract" class="text-lg md:text-3xl">here.</a>
 				</div>
 				<div class="mt-5 flex items-center gap-2 flex-wrap">
 					<a
