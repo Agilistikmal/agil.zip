@@ -3,7 +3,7 @@
 	import { fly } from 'svelte/transition';
 </script>
 
-<div class="absolute top-12 right-0 w-72" transition:fly={{ duration: 500, y: -20 }}>
+<div class="absolute top-12 right-0 w-72 z-50" transition:fly={{ duration: 500, y: -20 }}>
 	<div class="bg-white/10 backdrop-filter backdrop-blur-sm p-5">
 		<ul class="space-y-4">
 			<li class="group">

@@ -51,6 +51,7 @@
 	<meta property="og:image" content="/logo/BG White.png" />
 </svelte:head>
 
+<!-- Home -->
 <section id="home" class="bg-gradient-to-tr from-night to-dark h-full pb-16">
 	<div
 		transition:fly
@@ -86,12 +87,12 @@
 							<img
 								src="/logo/Logo White (Archive).svg"
 								alt="agil.zip"
-								class="h-5 opacity-100 group-hover:opacity-0 transition duration-500 absolute top-0 left-0"
+								class="h-6 opacity-100 group-hover:opacity-0 transition duration-500 absolute top-0 left-0"
 							/>
 							<img
 								src="/logo/Logo (Archive).svg"
 								alt="agil.zip"
-								class="h-5 opacity-0 group-hover:opacity-100 transition duration-500 absolute top-0 left-0"
+								class="h-6 opacity-0 group-hover:opacity-100 transition duration-500 absolute top-0 left-0"
 							/>
 						</div>
 						<p>Extract to view my projects</p>
@@ -104,7 +105,7 @@
 						data-sveltekit-preload-code
 					>
 						<Icon icon="uim:angle-down" width="24" height="24" />
-						<p>or find out more detail about me</p>
+						<p>Explore more details</p>
 					</a>
 				</div>
 			</div>
@@ -130,18 +131,18 @@
 					<div class="min-h-96">
 						<!-- Hero -->
 						<div in:fly={{ y: 500, duration: 1000 }}>
-							<h1 class="font-bold">
+							<h1 class="font-bold text-xl lg:text-5xl">
 								<span class="text-gradient from-saffron to-white">Agil</span> Ghani
 								<span class="text-gradient from-saffron to-white">Istikmal</span>
 							</h1>
-							<h4>
+							<h4 class="text-sm lg:text-lg">
 								or known as <span class="text-gradient from-saffron to-white">Agilistikmal</span>
 							</h4>
 						</div>
 
 						<!-- Biography -->
 						<div in:fly={{ y: 500, duration: 1000, delay: 500 }} class="mt-5">
-							<p class="w-full max-w-screen-md text-base md:text-xl text-justify">
+							<p class="w-full max-w-screen-md text-sm lg:text-xl text-justify">
 								I am a versatile fullstack developer who loves creating cutting-edge web and mobile
 								apps. From frontend and backend development, I have experience with every step of
 								the development stack. <span class="text-gradient from-tomato to-white"
@@ -176,7 +177,7 @@
 					<!-- Frontend -->
 					<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 }}>
 						<h3>Backend</h3>
-						<div class="flex items-center gap-2">
+						<div class="flex items-center gap-2 flex-wrap">
 							<Icon icon="skill-icons:golang" width="50" height="50" />
 							<Icon icon="skill-icons:rust" width="50" height="50" />
 							<Icon icon="skill-icons:bun-light" width="50" height="50" />
@@ -188,7 +189,7 @@
 					</div>
 					<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 * 1.2 }}>
 						<h3>Frontend</h3>
-						<div class="flex items-center gap-2">
+						<div class="flex items-center gap-2 flex-wrap">
 							<Icon icon="skill-icons:figma-light" width="50" height="50" />
 							<Icon icon="skill-icons:nextjs-light" width="50" height="50" />
 							<Icon icon="skill-icons:vuejs-light" width="50" height="50" />
@@ -200,7 +201,7 @@
 					</div>
 					<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 * 1.4 }}>
 						<h3>Datastore</h3>
-						<div class="flex items-center gap-2">
+						<div class="flex items-center gap-2 flex-wrap">
 							<Icon icon="skill-icons:postgresql-light" width="50" height="50" />
 							<Icon icon="skill-icons:redis-light" width="50" height="50" />
 							<Icon icon="skill-icons:rabbitmq-light" width="50" height="50" />
@@ -210,7 +211,7 @@
 					</div>
 					<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 * 1.6 }}>
 						<h3>Deployment</h3>
-						<div class="flex items-center gap-2">
+						<div class="flex items-center gap-2 flex-wrap">
 							<Icon icon="skill-icons:linux-light" width="50" height="50" />
 							<Icon icon="skill-icons:docker" width="50" height="50" />
 							<Icon icon="skill-icons:github-light" width="50" height="50" />
@@ -220,7 +221,7 @@
 					</div>
 					<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 * 1.8 }}>
 						<h3>Code Editor</h3>
-						<div class="flex items-center gap-2">
+						<div class="flex items-center gap-2 flex-wrap">
 							<Icon icon="skill-icons:vscode-light" width="50" height="50" />
 							<Icon icon="skill-icons:idea-light" width="50" height="50" />
 						</div>

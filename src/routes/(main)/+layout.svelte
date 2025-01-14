@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Footer from '$lib/components/Footer.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 
 	let { children } = $props();
@@ -7,4 +8,5 @@
 <div class={`min-h-screen`}>
 	<Navbar />
 	{@render children()}
+	<Footer />
 </div>
