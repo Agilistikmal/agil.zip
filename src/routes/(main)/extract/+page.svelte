@@ -29,6 +29,31 @@
 	}
 </script>
 
+<svelte:head>
+	<title>agil.zip | Projects</title>
+	<meta
+		name="description"
+		content="I'm a passionate fullstack developer with expertise in front-end and back-end development. View my portfolio to see how I create innovative and user-friendly solutions."
+	/>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="https://agil.zip" />
+	<meta name="twitter:title" content="agil.zip" />
+	<meta
+		name="twitter:description"
+		content="I'm a passionate fullstack developer with expertise in front-end and back-end development. View my portfolio to see how I create innovative and user-friendly solutions."
+	/>
+	<meta name="twitter:image" content="/logo/BG White.png" />
+
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="agil.zip" />
+	<meta
+		property="og:description"
+		content="I'm a passionate fullstack developer with expertise in front-end and back-end development. View my portfolio to see how I create innovative and user-friendly solutions."
+	/>
+	<meta property="og:url" content="https://agil.zip" />
+	<meta property="og:image" content="/logo/BG White.png" />
+</svelte:head>
+
 <section class="bg-gradient-to-tr from-night to-dark">
 	<div
 		transition:fly
