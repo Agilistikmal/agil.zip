@@ -19,7 +19,9 @@ export default {
 				amethyst: '#A663CC',
 				wisteria: '#B298DC',
 				colombiablue: '#B8D0EB',
-				celeste: '#B9FAF8'
+				celeste: '#B9FAF8',
+
+				dark: '#1A1A2E'
 			},
 			fontFamily: {
 				lexend: 'Lexend'

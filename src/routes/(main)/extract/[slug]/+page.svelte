@@ -23,7 +23,7 @@
 	const contributors: User[] = data.project.expand?.contributors;
 </script>
 
-<section class="bg-gradient-to-tr from-grape to-amethyst">
+<section class="bg-gradient-to-tr from-night to-dark">
 	<div
 		transition:fly
 		class="mx-auto min-h-screen w-full max-w-screen-2xl py-32 px-8 text-white space-y-8"
@@ -41,7 +41,7 @@
 		</div>
 		<div in:fly={{ y: -50, duration: 500, delay: 500 }} class="flex gap-4 overflow-x-scroll">
 			{#each data.project.images as image}
-				<div class="min-w-[600px] max-w-[600px] aspect-video bg-white">
+				<div class="min-w-[720px] max-w-[720px] aspect-video bg-white">
 					<img
 						src={pb.getFileUrl(data.project, image)}
 						alt={image}
@@ -51,17 +51,17 @@
 			{/each}
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-			<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white p-5 w-full">
-				<h4 class="text-gradient from-black to-grape font-bold">Description</h4>
-				<p class="prose">{@html data.project.description}</p>
+			<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white/10 p-5 w-full">
+				<h4 class="text-gradient from-grape to-white font-bold">Description</h4>
+				<p class="prose text-white prose-a:text-grape">{@html data.project.description}</p>
 			</div>
 			<div class="space-y-2">
-				<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white p-5 w-full">
-					<h4 class="text-gradient from-black to-grape font-bold">Techstacks</h4>
+				<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white/10 p-5 w-full">
+					<h4 class="text-gradient from-grape to-white font-bold">Techstacks</h4>
 					<div class="flex items-center gap-2">
 						{#each techStacks as techStack}
-							<div class="bg-grape/10 px-5 py-2 relative group">
-								<div class="flex items-center gap-2 text-black">
+							<div class="bg-white/10 px-5 py-2 relative group">
+								<div class="flex items-center gap-2">
 									<Icon icon={techStack.iconify_name} class="text-2xl" />
 									<p>{techStack.name}</p>
 								</div>
@@ -69,12 +69,12 @@
 						{/each}
 					</div>
 				</div>
-				<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white p-5 w-full">
-					<h4 class="text-gradient from-black to-grape font-bold">Contributors</h4>
+				<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white/10 p-5 w-full">
+					<h4 class="text-gradient from-grape to-white font-bold">Contributors</h4>
 					<div class="flex items-center gap-2">
 						{#each contributors as contributor}
-							<div class="bg-grape/10 px-5 py-2">
-								<div class="flex items-center gap-2 text-black">
+							<div class="bg-white/10 px-5 py-2">
+								<div class="flex items-center gap-2">
 									<img
 										src={pb.files.getUrl(contributor, contributor.avatar)}
 										alt={contributor.avatar}

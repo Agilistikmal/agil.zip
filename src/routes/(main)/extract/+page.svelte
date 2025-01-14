@@ -29,7 +29,7 @@
 	}
 </script>
 
-<section class="bg-gradient-to-tr from-grape to-amethyst">
+<section class="bg-gradient-to-tr from-night to-dark">
 	<div
 		transition:fly
 		class="mx-auto min-h-screen w-full max-w-screen-2xl pt-48 pb-32 px-8 text-white"

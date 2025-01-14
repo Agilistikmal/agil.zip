@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import Background from '$lib/components/Background.svelte';
-	import About from './About.svelte';
+	import Icon from '@iconify/svelte';
 
 	let texts: string[] = ['archive', '.zip', 'project', 'profile', 'portfolio'];
 	let index = 0;
 	let roller: NodeJS.Timeout;
+
+	let showAbout: boolean = false;
 
 	onMount(() => {
 		roller = setInterval(() => {
@@ -20,31 +21,34 @@
 	});
 </script>
 
-<Background />
-<section
-	transition:fly
-	class="mx-auto h-screen w-full max-w-screen-2xl overflow-hidden px-8 text-white"
->
-	{#key index}
+<section id="home" class="bg-gradient-to-tr from-night to-dark h-full">
+	<div
+		transition:fly
+		class="mx-auto h-screen w-full max-w-screen-2xl overflow-hidden px-8 text-white"
+	>
 		<div class="flex h-full w-full items-center">
 			<div>
 				<h5 class="text-base font-light md:text-xl">Software Engineer</h5>
 				<h1 class="md:text-7xl">Agil Ghani Istikmal</h1>
 				<div class="mt-2 flex flex-wrap gap-2 overflow-hidden">
 					<h3 class="text-nowrap text-xl md:text-3xl">Explore my</h3>
-					<h3
-						in:fly={{ duration: 500, delay: 500, y: -15 }}
-						out:fly={{ duration: 500, delay: 100, y: 15 }}
-						class="w-24 overflow-hidden text-center text-xl text-gradient from-saffron to-white font-bold underline md:w-36 md:text-3xl"
-					>
-						{texts[index]}
-					</h3>
+					<div class="w-36 h-10 overflow-hidden">
+						{#key index}
+							<h3
+								in:fly={{ duration: 500, delay: 500, y: -15 }}
+								out:fly={{ duration: 500, delay: 0, y: 15 }}
+								class="text-center text-xl text-gradient from-saffron to-white font-bold underline md:w-36 md:text-3xl"
+							>
+								{texts[index]}
+							</h3>
+						{/key}
+					</div>
 					<a href="/extract" class="text-xl md:text-3xl">here.</a>
 				</div>
 				<div class="mt-5 flex items-center gap-2">
 					<a
 						href="/extract"
-						class="flex w-max items-center gap-2 bg-white/25 px-5 py-2 text-white transition duration-500 hover:bg-white hover:text-black group"
+						class="flex w-max items-center gap-2 bg-grape px-5 py-2 text-white transition duration-500 hover:bg-white/25 group"
 						data-sveltekit-preload-data
 						data-sveltekit-preload-code
 					>
@@ -69,11 +73,129 @@
 						data-sveltekit-preload-data
 						data-sveltekit-preload-code
 					>
+						<Icon icon="uim:angle-down" width="24" height="24" />
 						<p>or find out more detail about me</p>
 					</a>
 				</div>
 			</div>
 		</div>
-	{/key}
+	</div>
 </section>
-<About />
+
+<!-- About -->
+<section
+	id="about"
+	class="bg-gradient-to-tr from-night to-dark h-full min-h-screen"
+	on:mouseenter={() => (showAbout = true)}
+	aria-label="about"
+>
+	{#if showAbout}
+		<div
+			transition:fly
+			on:focus={() => alert('a')}
+			class="mx-auto min-h-screen w-full max-w-screen-2xl pt-48 pb-32 px-8 text-white"
+		>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+				<!-- Left Side -->
+				<div class="min-h-96">
+					<!-- Hero -->
+					<div in:fly={{ y: 500, duration: 1000 }}>
+						<h1 class="font-bold">
+							<span class="text-gradient from-saffron to-white">Agil</span> Ghani
+							<span class="text-gradient from-saffron to-white">Istikmal</span>
+						</h1>
+						<h4>
+							or known as <span class="text-gradient from-saffron to-white">Agilistikmal</span>
+						</h4>
+					</div>
+
+					<!-- Biography -->
+					<div in:fly={{ y: 500, duration: 1000, delay: 500 }} class="mt-5">
+						<p class="w-full max-w-screen-md text-xl text-justify">
+							I am a versatile fullstack developer who loves creating cutting-edge web and mobile
+							apps. From frontend and backend development, I have experience with every step of the
+							development stack. <span class="text-gradient from-tomato to-white"
+								>Golang, Rust, Node.js, Java, Python, React, Vue, and Svelte</span
+							> are just a few of the programming languages and frameworks in which I am skilled. I also
+							have a solid background in reverse engineering and scraping, which helps me to glean insightful
+							information from data and create unique solutions.
+						</p>
+					</div>
+				</div>
+
+				<!-- Right Side -->
+				<div
+					in:fly={{ duration: 500, delay: 100 }}
+					class="h-full flex items-center justify-center relative z-0"
+				>
+					<img src="/logo/agil.zip.white.png" alt="" />
+					<div
+						class="absolute top-0 left-20 w-56 h-56 bg-grape blur-3xl rounded-full opacity-50 -z-10"
+					></div>
+					<div class="absolute top-0 left-0 w-full -z-10">
+						<div class="mx-auto w-96 h-96 bg-amaranth blur-3xl rounded-full opacity-25"></div>
+					</div>
+					<div
+						class="absolute bottom-0 right-20 w-56 h-56 bg-amaranth blur-3xl rounded-full opacity-50 -z-10"
+					></div>
+				</div>
+			</div>
+
+			<!-- Skills -->
+			<div class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				<!-- Frontend -->
+				<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 }}>
+					<h3>Backend</h3>
+					<div class="flex items-center gap-2">
+						<Icon icon="skill-icons:golang" width="50" height="50" />
+						<Icon icon="skill-icons:rust" width="50" height="50" />
+						<Icon icon="skill-icons:bun-light" width="50" height="50" />
+						<Icon icon="skill-icons:nodejs-light" width="50" height="50" />
+						<Icon icon="skill-icons:python-light" width="50" height="50" />
+						<Icon icon="skill-icons:java-light" width="50" height="50" />
+						<Icon icon="skill-icons:spring-light" width="50" height="50" />
+					</div>
+				</div>
+				<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 * 1.2 }}>
+					<h3>Frontend</h3>
+					<div class="flex items-center gap-2">
+						<Icon icon="skill-icons:figma-light" width="50" height="50" />
+						<Icon icon="skill-icons:nextjs-light" width="50" height="50" />
+						<Icon icon="skill-icons:vuejs-light" width="50" height="50" />
+						<Icon icon="skill-icons:svelte" width="50" height="50" />
+						<Icon icon="skill-icons:tailwindcss-light" width="50" height="50" />
+						<Icon icon="skill-icons:react-light" width="50" height="50" />
+						<Icon icon="skill-icons:flutter-light" width="50" height="50" />
+					</div>
+				</div>
+				<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 * 1.4 }}>
+					<h3>Datastore</h3>
+					<div class="flex items-center gap-2">
+						<Icon icon="skill-icons:postgresql-light" width="50" height="50" />
+						<Icon icon="skill-icons:redis-light" width="50" height="50" />
+						<Icon icon="skill-icons:rabbitmq-light" width="50" height="50" />
+						<Icon icon="skill-icons:mongodb" width="50" height="50" />
+						<Icon icon="skill-icons:supabase-light" width="50" height="50" />
+					</div>
+				</div>
+				<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 * 1.6 }}>
+					<h3>Deployment</h3>
+					<div class="flex items-center gap-2">
+						<Icon icon="skill-icons:linux-light" width="50" height="50" />
+						<Icon icon="skill-icons:docker" width="50" height="50" />
+						<Icon icon="skill-icons:github-light" width="50" height="50" />
+						<Icon icon="skill-icons:githubactions-light" width="50" height="50" />
+						<Icon icon="skill-icons:nginx" width="50" height="50" />
+					</div>
+				</div>
+				<div class="space-y-2" in:fly={{ y: 500, duration: 500, delay: 1000 * 1.8 }}>
+					<h3>Code Editor</h3>
+					<div class="flex items-center gap-2">
+						<Icon icon="skill-icons:vscode-light" width="50" height="50" />
+						<Icon icon="skill-icons:idea-light" width="50" height="50" />
+					</div>
+				</div>
+			</div>
+		</div>
+	{/if}
+</section>
