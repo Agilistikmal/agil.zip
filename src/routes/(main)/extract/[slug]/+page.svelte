@@ -23,6 +23,22 @@
 	const contributors: User[] = data.project.expand?.contributors;
 </script>
 
+<svelte:head>
+	<title>agil.zip | {data.project.title}</title>
+	<meta name="description" content={data.project.description} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content={`https://agil.zip/extract/${data.project.slug}`} />
+	<meta name="twitter:title" content={`agil.zip | ${data.project.title}`} />
+	<meta name="twitter:description" content={data.project.short_description} />
+	<meta name="twitter:image" content={pb.getFileUrl(data.project, data.project.images[0])} />
+
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="agil.zip" />
+	<meta property="og:description" content={data.project.short_description} />
+	<meta property="og:url" content={`https://agil.zip/extract/${data.project.slug}`} />
+	<meta property="og:image" content={pb.getFileUrl(data.project, data.project.images[0])} />
+</svelte:head>
+
 <section class="bg-gradient-to-tr from-night to-dark">
 	<div
 		transition:fly
@@ -41,11 +57,11 @@
 		</div>
 		<div in:fly={{ y: -50, duration: 500, delay: 500 }} class="flex gap-4 overflow-x-scroll">
 			{#each data.project.images as image}
-				<div class="min-w-[720px] max-w-[720px] aspect-video bg-white">
+				<div class="min-h-[480px] max-h-[480px] bg-white/10">
 					<img
 						src={pb.getFileUrl(data.project, image)}
 						alt={image}
-						class="w-full h-full object-cover object-top"
+						class="w-full h-full object-contain object-center"
 					/>
 				</div>
 			{/each}
@@ -53,7 +69,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-2">
 			<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white/10 p-5 w-full">
 				<h4 class="text-gradient from-grape to-white font-bold">Description</h4>
-				<p class="prose text-white prose-a:text-grape">{@html data.project.description}</p>
+				<p class="prose text-white prose-a:text-amethyst">{@html data.project.description}</p>
 			</div>
 			<div class="space-y-2">
 				<div in:fly={{ y: -50, duration: 500, delay: 800 }} class="bg-white/10 p-5 w-full">

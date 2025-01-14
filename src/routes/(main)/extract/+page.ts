@@ -10,7 +10,7 @@ export async function load({ url }: PageLoadEvent) {
 	const paramSort = url.searchParams.get('sort');
 	const paramSearch = url.searchParams.get('search');
 
-	let sort: string = '-created';
+	let sort: string = '-started_at';
 	switch (paramSort) {
 		case 'az':
 			sort = 'title';
@@ -19,13 +19,13 @@ export async function load({ url }: PageLoadEvent) {
 			sort = '-title';
 			break;
 		case 'newest':
-			sort = '-created';
+			sort = '-started_at';
 			break;
 		case 'oldest':
-			sort = 'created';
+			sort = 'started_at';
 			break;
 		default:
-			sort = '-created';
+			sort = '-started_at';
 			break;
 	}
 
