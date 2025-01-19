@@ -55,13 +55,16 @@
 			<h2>{data.project.short_description}</h2>
 			<h5 class="text-gradient from-saffron to-white">{startDate} - {finishDate}</h5>
 		</div>
-		<div in:fly={{ y: -50, duration: 500, delay: 500 }} class="flex gap-4 overflow-x-scroll">
+		<div
+			in:fly={{ y: -50, duration: 500, delay: 500 }}
+			class="flex flex-nowrap gap-4 overflow-x-scroll"
+		>
 			{#each data.project.images as image}
-				<div class="min-h-[480px] max-h-[480px] bg-white/10">
+				<div class="min-w-[80%] max-w-max bg-white/10">
 					<img
 						src={pb.getFileUrl(data.project, image)}
 						alt={image}
-						class="w-full h-full object-contain object-center"
+						class="object-contain object-center"
 					/>
 				</div>
 			{/each}
