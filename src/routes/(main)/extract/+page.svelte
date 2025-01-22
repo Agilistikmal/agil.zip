@@ -27,6 +27,16 @@
 		query.set('sort', sort);
 		goto('?' + query.toString(), { keepFocus: true });
 	}
+
+	async function handleTechStack(
+		e: Event & {
+			currentTarget: EventTarget & HTMLSelectElement;
+		}
+	) {
+		const techStack = e.currentTarget.value;
+		query.set('techStack', techStack);
+		goto('?' + query.toString(), { keepFocus: true });
+	}
 </script>
 
 <svelte:head>
@@ -72,8 +82,13 @@
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 				<div class="grid grid-cols-2 bg-white/25 backdrop-filter backdrop-blur-sm">
 					<label for="tech_stacks" class="p-5 w-full h-full">
-						<p class="text-xs">Tech Stacks</p>
-						<select name="tech_stacks" id="tech_stacks" class="bg-transparent w-full">
+						<p class="text-xs">TechStack</p>
+						<select
+							name="tech_stacks"
+							id="tech_stacks"
+							class="bg-transparent w-full"
+							onchange={handleTechStack}
+						>
 							<option value="">All</option>
 							{#each data.techStacks as techStack}
 								<option value={techStack.slug}>{techStack.name}</option>

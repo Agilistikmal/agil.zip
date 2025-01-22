@@ -24,7 +24,7 @@
 </script>
 
 <svelte:head>
-	<title>agil.zip | Projects</title>
+	<title>agil.zip</title>
 	<meta
 		name="description"
 		content="I am a versatile fullstack developer who loves creating cutting-edge web and mobile apps. From frontend and backend development, I have experience with every step of the development stack. Golang, Rust, Node.js, Java, Python, React, Vue, and Svelte are just a few of the programming languages and frameworks in which I am skilled. I also have a solid background in reverse engineering and scraping, which helps me to glean insightful information from data and create unique solutions.
@@ -59,22 +59,24 @@
 	>
 		<div class="flex h-full w-full items-center">
 			<div>
-				<h5 class="text-base font-light md:text-xl">Software Engineer</h5>
-				<h1 class="text-3xl md:text-7xl">Agil Ghani Istikmal</h1>
+				<h5 class="font-light">Software Engineer</h5>
+				<h1>Agil Ghani Istikmal</h1>
 				<div class="mt-2 flex flex-wrap gap-2 overflow-hidden">
-					<h3 class="text-nowrap text-lg md:text-3xl">Explore my</h3>
+					<h3 class="text-nowrap">Explore my</h3>
 					<div class="w-24 md:w-36 h-10 overflow-hidden">
 						{#key index}
 							<h3
 								in:fly={{ duration: 500, delay: 500, y: -15 }}
 								out:fly={{ duration: 500, delay: 0, y: 15 }}
-								class="text-center text-lg text-gradient from-saffron to-white font-bold underline md:w-36 md:text-3xl"
+								class="text-center text-gradient from-saffron to-white font-bold underline md:w-36"
 							>
 								{texts[index]}
 							</h3>
 						{/key}
 					</div>
-					<a href="/extract" class="text-lg md:text-3xl">here.</a>
+					<a href="/extract">
+						<h3>here.</h3>
+					</a>
 				</div>
 				<div class="mt-5 flex items-center gap-2 flex-wrap">
 					<a
@@ -124,11 +126,11 @@
 		{#if aboutIntersecting == true}
 			<div
 				transition:fly
-				class="mx-auto min-h-screen w-full max-w-screen-2xl pt-48 pb-32 px-8 text-white"
+				class="mx-auto min-h-screen w-full max-w-screen-2xl pt-32 md:pt-48 pb-32 px-8 text-white"
 			>
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 					<!-- Left Side -->
-					<div class="min-h-96">
+					<div class="md:min-h-96">
 						<!-- Hero -->
 						<div in:fly={{ y: 500, duration: 1000 }}>
 							<h1 class="font-bold text-xl lg:text-5xl">
@@ -151,6 +153,14 @@
 								also have a solid background in reverse engineering and scraping, which helps me to glean
 								insightful information from data and create unique solutions.
 							</p>
+						</div>
+
+						<!-- Button View Project -->
+						<div in:fly={{ y: 500, duration: 1000, delay: 500 }} class="mt-5">
+							<a href="/extract" class="flex items-center gap-2 text-gradient from-grape to-white">
+								<Icon icon="uim:layers-alt" width="24" height="24" class="text-amethyst" />
+								<span>Explore my projects</span>
+							</a>
 						</div>
 					</div>
 

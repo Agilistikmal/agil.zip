@@ -9,6 +9,7 @@ export async function load({ url }: PageLoadEvent) {
 	const paramLimit = url.searchParams.get('limit');
 	const paramSort = url.searchParams.get('sort');
 	const paramSearch = url.searchParams.get('search');
+	const paramTechStack = url.searchParams.get('techStack');
 
 	let sort: string = '-started_at';
 	switch (paramSort) {
@@ -34,7 +35,7 @@ export async function load({ url }: PageLoadEvent) {
 		.getList(Number(paramPage), Number(paramLimit), {
 			expand: 'contributors,tech_stacks',
 			sort: sort,
-			filter: `title ~ "${paramSearch || ''}"`
+			filter: `title ~ "${paramSearch || ''}" && tech_stacks.slug ?~ "${paramTechStack || ''}"`
 		});
 	const projects = resultProjects;
 
